@@ -14,7 +14,7 @@ RUN apt-get update \
   build-essential \
   ca-certificates \
   git \
-  libdbus-1-3
+  libdbus-1-3 \
   libfontconfig1 \
   libgl1-mesa-dev \
   libice6 \
