@@ -34,12 +34,12 @@ COPY qt-installer-noninteractive.qs /tmp/qt/
 ARG QT_CI_LOGIN
 ARG QT_CI_PASSWORD
 
-RUN wget -q -o /tmp/qt/qt-installer.run http://download.qt.io/official_releases/online_installers/qt-unified-linux-x64-online.run \
+RUN wget -q -O /tmp/qt/qt-installer.run http://download.qt.io/official_releases/online_installers/qt-unified-linux-x64-online.run \
   && chmod +x /tmp/qt/qt-installer.run \
   && export QT_VERSION_PKG=`echo $QT_VERSION | awk 'BEGIN {FS="."} {print $1$2$3}'` \
   && /tmp/qt/qt-installer.run -platform minimal --verbose --script /tmp/qt/qt-installer-noninteractive.qs \
   && rm -rf /tmp/qt \
-  && ls -d /opt/Qt/* | grep -v "$QT_VERSION" | xargs rm -r
+  && ls -d $QT_PATH/* | grep -v "$QT_VERSION" | xargs rm -r
 
 RUN locale-gen en_US.UTF-8 \
   && dpkg-reconfigure locales
