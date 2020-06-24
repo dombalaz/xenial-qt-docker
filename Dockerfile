@@ -1,7 +1,7 @@
 FROM ubuntu:xenial
 MAINTAINER Dominik Baláž <dombalaz@pm.me>
 
-ARG QT_VERSION=5.13.2
+ARG QT_VERSION=5.14.2
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV QT_PATH /opt/Qt
